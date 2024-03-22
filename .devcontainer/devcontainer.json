@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+	"name": "C++",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/cpp:1-debian-12",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// ninja-build: required by 'vcpkg' C++ package manager
+	// pkg-config: required by 'gtest' package within vcpkg
+	"postCreateCommand": "sudo apt-get update && sudo apt-get --yes install ninja-build pkg-config",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				// Better UI themes for C/C++ extension
+				"ms-vscode.cpptools-themes",
+				// Better C++ syntax
+				"jeff-hykin.better-cpp-syntax",
+				// Automatic doxygen documentation generator
+				"cschlosser.doxdocgen",
+				// Embedded software development (optional)
+				"platformio.platformio-ide"
+			]
+		}
+	}
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

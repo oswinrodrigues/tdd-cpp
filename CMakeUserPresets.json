@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "default",
+            "inherits": "vcpkg",
+            "environment": {
+                "VCPKG_FORCE_SYSTEM_BINARIES": "true",
+                "VCPKG_ROOT": "/workspaces/cpp/vcpkg",
+                "VCPKG_DOWNLOADS": "$env{VCPKG_ROOT}/downloads",
+                "DOWNLOADS": "$env{VCPKG_DOWNLOADS}"
+            }
+        }
+    ]
+}
