@@ -12,9 +12,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// ninja-build: required by 'vcpkg' C++ package manager
-	// pkg-config: required by 'gtest' package within vcpkg
-	"postCreateCommand": "sudo apt-get update && sudo apt-get --yes install ninja-build pkg-config",
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
