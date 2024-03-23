@@ -30,7 +30,7 @@ find_package(Boost
 # map source and link libraries to executable
 add_executable(
   dummy_test
-  dummy_test.cpp
+  src/dummy_test.cpp
 )
 target_link_libraries(
   dummy_test
