@@ -1,5 +1,5 @@
 # TDD with CPP
-Practice exercises from [the book](https://pragprog.com/titles/lotdd/) by [@jlangr](https://github.com/jlangr).
+Practice exercises from [the book](https://pragprog.com/titles/lotdd/) by [@jlangr](https://github.com/jlangr), _Modern C++ Programming with Test-Driven Development_ (2013)
 
 
 ## Setup
