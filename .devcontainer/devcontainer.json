@@ -23,9 +23,7 @@
 				// Better C++ syntax
 				"jeff-hykin.better-cpp-syntax",
 				// Automatic doxygen documentation generator
-				"cschlosser.doxdocgen",
-				// Embedded software development (optional)
-				"platformio.platformio-ide"
+				"cschlosser.doxdocgen"
 			]
 		}
 	}
