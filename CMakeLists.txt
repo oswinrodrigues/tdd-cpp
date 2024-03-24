@@ -29,11 +29,11 @@ find_package(Boost
 
 # map source and link libraries to executable
 add_executable(
-  dummy_test
-  src/dummy_test.cpp
+  soundex_test
+  src/soundex_test.cpp
 )
 target_link_libraries(
-  dummy_test
+  soundex_test
   PRIVATE
   GTest::gtest
   GTest::gtest_main
@@ -51,6 +51,6 @@ target_link_libraries(
 # setup testing functionality
 enable_testing()
 add_test(
-  HelloTest
-  dummy_test
+  SoundexEncoding
+  soundex_test
 )
