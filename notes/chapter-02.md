@@ -1,2 +1,31 @@
 # TDD: A First Example
-(Add notes here)
+
+- Incremental. One test at a time. Don't need all tests to start.
+    - Pick next simplest behaviour. Most straightforward, smallest increment.
+- But can record thoughts of upcoming tests in a "test list".
+    - Code cleanup or refactor reminders go here also.
+    - A personal memo, a rough note, a thought-dumping ground.
+    - Does not constrain what you do and when you do it.
+- Test names must be expressive. A sentence on what it verifies. Same for asserts.
+- Three rules of TDD, from 'Uncle Bob' (Robert C. Martin)
+    - Write production code only to make a failing test pass.
+    - Write no more of a unit test than sufficient to fail. Includes compilation failures.
+    - Write only the production code needed to pass the one failing test.
+- Negative feedback (failure) is good. Ensures test honesty.
+    - False positives are bad i.e. tests passing when they shouldn't.
+- Seek incremental, immediate feedback. Test early and often. Safe coding.
+    - Easy to debug when you know precisely what new code caused the failure.
+    - Trade-off. Sometimes writing whole test clarifies interface design.
+- Commit every time the 'code is green'. Known good states to roll back, if desired.
+- Tests declare the behaviours your system should have.
+    - Converse: any functionality not demanded by a test is bad.
+    - This necessitates adding only partial - even trivial - functionality to start.
+    - At each step, the source should only have the simplest generalized solution for what the set of tests needs.
+- We make decisions on design and implementation *as* we add tests.
+- Be at peace with messy code. TDD saves a time and place to refactor.
+    - Defer complexity that slows you down.
+    - For example, put a new class and its test in same file. The interface design will keep changing as you test-drive.
+- Don't neglect the "refactor" stage of TDD cycle.
+    - Before the small messes add up, making any cleanup at all arduous.
+    - Retain existing behaviour (as shown by the test) while improving design.
+    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness
