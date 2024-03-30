@@ -8,6 +8,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # enable debugging
 add_compile_options(-g)
 
+# map source to executable
+add_executable(
+  soundex_test
+  src/soundex_test.cpp
+)
+
+# setup testing functionality
+enable_testing()
+add_test(
+  SoundexEncoding
+  soundex_test
+)
+
 # define required C++ libraries
 find_package(GTest
   CONFIG
@@ -30,11 +43,7 @@ find_package(Boost
   # 'algorithm' and 'assign' are header-only and already included within Boost
 )
 
-# map source and link libraries to executable
-add_executable(
-  soundex_test
-  src/soundex_test.cpp
-)
+# link libraries to executable
 target_link_libraries(
   soundex_test
   PRIVATE
@@ -49,11 +58,4 @@ target_link_libraries(
   Boost::date_time
   Boost::filesystem
   # 'algorithm' and 'assign' are header-only and already included within Boost::boost
-)
-
-# setup testing functionality
-enable_testing()
-add_test(
-  SoundexEncoding
-  soundex_test
 )
