@@ -5,6 +5,9 @@ project(tdd-cpp)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# enable debugging
+add_compile_options(-g)
+
 # define required C++ libraries
 find_package(GTest
   CONFIG
