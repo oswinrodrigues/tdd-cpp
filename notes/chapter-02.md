@@ -18,9 +18,16 @@
     - Trade-off. Sometimes writing whole test clarifies interface design.
 - Commit every time the 'code is green'. Known good states to roll back, if desired.
 - Tests declare the behaviours your system should have.
+    - Tests can be seen as specs. In fact, if crafted well, tests can be more concrete and comprehensive than specs.
     - Converse: any functionality not demanded by a test is bad.
-    - This necessitates adding only partial - even trivial - functionality to start.
+    - This necessitates adding functionality that is only partial - even trivial or in breach of other specs - to start.
     - At each step, the source should only have the simplest generalized solution for what the set of tests needs.
+- As we write more tests for more behaviours, will automatically self-correct then.
+    - Think of TDD as if only one spec is being revealed at a time.
+    - Building incrementally, *but* with "continually verified, forward progress".
+    - TDD makes such progress possible in the face of incomplete or new information.
+    - After adding new test and behaviour, a previous test may fail. This is good. Self-correction.
+    - Increases speed in long run, avoiding errors from large, complex changes.
 - We make decisions on design and implementation *as* we add tests.
 - Be at peace with messy code. TDD saves a time and place to refactor.
     - Defer complexity that slows you down.
@@ -29,3 +36,6 @@
     - Before the small messes add up, making any cleanup at all arduous.
     - Retain existing behaviour (as shown by the test) while improving design.
     - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness
+- Tests are independent.
+    - Each test has its own separate context e.g. instance of object-under-test.
+    - Each test deals with one precise behaviour. *Even if* two tests end up doing the same steps!
