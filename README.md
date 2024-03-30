@@ -23,11 +23,11 @@ Any of the following should work:
 Any of the following should work:
 - Select `CMake: Run Tests` from the [Command Palette](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_command-palette)
 - Click `Run Tests`, beside `Test` heading, under `CMake` tab, in sidebar
+- Click `Run Test`, beside or below `tdd-cpp`, under `Testing` tab, in sidebar
 - Run `ctest` in terminal, while in `out/build/default/`
 
 Alternate options not directly related to `CMake` are:
-- Click `Run Test`, beside or below `tdd-cpp`, under `Testing` tab, in sidebar
-- Run the test executable in terminal e.g. `.out/build/default/dummy_test`
+- Run the test executable in terminal e.g. `.out/build/default/<test>`
 
 ### Debug
 1. Add any desired [breakpoints](https://code.visualstudio.com/Docs/editor/debugging#_breakpoints) to the source code
