@@ -11,7 +11,7 @@ public:
 TEST(SoundexEncoding, KeepsOnlyLetterOfSingleLetterWord) {
   Soundex soundex;
   auto encoded = soundex.encode("A");
-  ASSERT_THAT(encoded, Eq("A"));
+  ASSERT_THAT(encoded, Eq("A000"));
 }
 
 TEST(SoundexEncoding, PadsWithZeroesTillThreeDigits) {
