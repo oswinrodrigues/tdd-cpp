@@ -30,4 +30,5 @@ Alternate options not directly related to `CMake` are:
 - Run the test executable in terminal e.g. `.out/build/default/dummy_test`
 
 ### Debug
-(To be added)
+1. Add any desired [breakpoints](https://code.visualstudio.com/Docs/editor/debugging#_breakpoints) to the source code
+2. Click `Debug Test`, beside or below `tdd-cpp`, under `Testing` tab, in sidebar
