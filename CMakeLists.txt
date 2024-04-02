@@ -8,10 +8,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # enable debugging
 add_compile_options(-g)
 
-# map source to executable
+# setup executable
 add_executable(
   soundex_test
   src/soundex_test.cpp
+)
+
+# setup include paths
+target_include_directories(
+  soundex_test
+  PRIVATE
+  inc
 )
 
 # setup testing functionality
