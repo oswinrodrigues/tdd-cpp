@@ -39,3 +39,7 @@
 - Tests are independent.
     - Each test has its own separate context e.g. instance of object-under-test.
     - Each test deals with one precise behaviour. *Even if* two tests end up doing the same steps!
+- Common setup or teardown in test 'fixture' or 'suite'
+    - Keeps individual tests focused and clean. Highly abstracted, highly expressive.
+    - Facilitates future maintenance by restricting potential changes to one place.
+    - But common setup must re-run in each test. Recall each test has independent context.
