@@ -1,5 +1,5 @@
 #include <gmock/gmock.h>
-using testing::Eq;
+using namespace testing;
 
 class Soundex {
 public:
@@ -12,7 +12,7 @@ private:
   }
 };
 
-class SoundexEncoding: public testing::Test {
+class SoundexEncoding: public Test {
 public:
   Soundex soundex;
 };
