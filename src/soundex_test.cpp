@@ -18,11 +18,9 @@ public:
 };
 
 TEST_F(SoundexEncoding, KeepsOnlyLetterOfSingleLetterWord) {
-  auto encoded = soundex.encode("A");
-  ASSERT_THAT(encoded, Eq("A000"));
+  ASSERT_THAT(soundex.encode("A"), Eq("A000"));
 }
 
 TEST_F(SoundexEncoding, PadsWithZeroesTillThreeDigits) {
-  auto encoded = soundex.encode("I");
-  ASSERT_THAT(encoded, Eq("I000"));
+  ASSERT_THAT(soundex.encode("I"), Eq("I000"));
 }
