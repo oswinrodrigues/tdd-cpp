@@ -1,6 +1,7 @@
 # TDD with CPP
 Practice exercises from [the book](https://pragprog.com/titles/lotdd/) by [@jlangr](https://github.com/jlangr), _Modern C++ Programming with Test-Driven Development_ (2013)
 
+I've tried to make commits reflect the TDD _process_ as much as possible, since the final _result_ alone wouldn't capture that. Follow along through successive commits to see me 'test-driving' the code.
 
 ## Setup
 
