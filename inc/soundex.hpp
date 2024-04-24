@@ -9,6 +9,8 @@ public:
     return zeroPad(getHead(word) + getDigits(word));
   }
 private:
+  static constexpr size_t maxCodeLength = 4;
+
   std::string getHead(const std::string& word) const {
     return word.substr(0, 1);
   }
@@ -17,7 +19,7 @@ private:
     return "";
   }
   std::string zeroPad(const std::string& word) const {
-    auto zeroCount = 4 - word.length();
+    auto zeroCount = maxCodeLength - word.length();
     return word + std::string(zeroCount, '0');
   }
 };
