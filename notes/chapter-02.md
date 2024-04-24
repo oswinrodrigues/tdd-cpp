@@ -35,7 +35,12 @@
 - Don't neglect the "refactor" stage of TDD cycle.
     - Before the small messes add up, making any cleanup at all arduous.
     - Retain existing behaviour (as shown by the test) while improving design.
-    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness
+    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make source code declarative
+    - Declarative separates _interface_ (what) from _implementation_ (how). Clear, readable code. Clean, scalable designs.
+    - Sometimes, can defer a cleanup if know the next test will 'drive' it out. But must guarantee that next step; make note in test list.
+- Avoid prematurely optimizing during refactor (or green) stage.
+    - Focus on correct behaviour, good design, consistent interfaces, expressive code.
+    - Later, _maybe_, we optimize. But not without first _measuring_.
 - Tests are independent.
     - Each test has its own separate context e.g. instance of object-under-test.
     - Each test deals with one precise behaviour. *Even if* two tests end up doing the same steps!
@@ -43,3 +48,6 @@
     - Keeps individual tests focused and clean. Highly abstracted, highly expressive.
     - Facilitates future maintenance by restricting potential changes to one place.
     - But common setup must re-run in each test. Recall each test has independent context.
+- Each cycle, want to make 'green' by generalizing solution.
+    - But don't _over-generalize_. Don't account for future concerns.
+- TDD is not a science, it is a craft.
