@@ -41,6 +41,8 @@
 - Avoid prematurely optimizing during refactor (or green) stage.
     - Focus on correct behaviour, good design, consistent interfaces, expressive code.
     - Later, _maybe_, we optimize. But not without first _measuring_.
+- Each cycle, want to make 'green' by generalizing solution.
+    - But don't _over-generalize_. Don't account for future concerns.
 - Tests are independent.
     - Each test has its own separate context e.g. instance of object-under-test.
     - Each test deals with one precise behaviour. *Even if* two tests end up doing the same steps!
@@ -48,6 +50,13 @@
     - Keeps individual tests focused and clean. Highly abstracted, highly expressive.
     - Facilitates future maintenance by restricting potential changes to one place.
     - But common setup must re-run in each test. Recall each test has independent context.
-- Each cycle, want to make 'green' by generalizing solution.
-    - But don't _over-generalize_. Don't account for future concerns.
+- One assert per test (in general)
+    - Focus on the behaviour under test, not the implementing function
+    - A distinct behaviour deserves a separate test entirely
+    - Rarely, can add a second assert, as a distinct case for the same test (behaviour), _but only if_ it increases understanding of the behaviour.
+- When to stop writing test cases for the same behaviour?
+    - Remember: we are test-driving, not testing.
+    - "Testing" is concerned with exhaustively covering the specification.
+    - "Test-driving" drives design and implementation. In TDD, we write tests just to specify or describe _the next_ behaviour needed.
+    - If the logic won't change anymore, can stop writing tests for that particular behaviour.
 - TDD is not a science, it is a craft.
