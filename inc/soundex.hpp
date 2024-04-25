@@ -15,8 +15,11 @@ private:
     return word.substr(0, 1);
   }
   std::string getDigits(const std::string& word) const {
-    if (word.length() > 1) { return "1"; }
+    if (word.length() > 1) { return getDigit(); }
     return "";
+  }
+  std::string getDigit() const {
+    return "1";
   }
   std::string zeroPad(const std::string& word) const {
     auto zeroCount = maxCodeLength - word.length();
