@@ -38,6 +38,7 @@
     - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make source code declarative
     - Declarative separates _interface_ (what) from _implementation_ (how). Clear, readable code. Clean, scalable designs.
     - Sometimes, can defer a cleanup if know the next test will 'drive' it out. But must guarantee that next step; make note in test list.
+    - Very satisfying to simplify (or eliminate completely) code, but only when we have confidence it won't break things. Our tests provide that confidence.
 - Avoid prematurely optimizing during refactor (or green) stage.
     - Focus on correct behaviour, good design, consistent interfaces, expressive code.
     - Later, _maybe_, we optimize. But not without first _measuring_.
@@ -62,4 +63,7 @@
 - If driven by the next specified behaviour, and if we write only minimal code to satisfy that specification, then when to consider exceptions e.g. unexpected inputs?
     - As you implement, have to think about this, but don't have to fix it right then. Can jot a note down in the "test list".
     - Or can handle it right away, but in a separate TDD cycle, with a separate test.
+- Sometimes, in the 'red' or 'green' stage, a refactor of test infrastructure or source design (respectively) would help.
+    - Keep the TDD cycle stages distinct. Do only one thing at a time.
+    - In this case, stash the changes from the stage you were in, do the refactor, then come back.
 - TDD is not a science, it is a craft.
