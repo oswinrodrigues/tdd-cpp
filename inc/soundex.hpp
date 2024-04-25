@@ -19,7 +19,11 @@ private:
   }
   std::string getDigits(const std::string& word) const {
     if (word.empty()) { return ""; }
-    return getDigit(word.front());
+    std::string encoding;
+    for (auto letter : word) {
+      encoding += getDigit(letter);
+    }
+    return encoding;
   }
   std::string getDigit(char letter) const {
     const std::unordered_map<char, std::string> encodings {
