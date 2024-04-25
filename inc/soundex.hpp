@@ -18,7 +18,6 @@ private:
     return word.substr(1);
   }
   std::string getDigits(const std::string& word) const {
-    if (word.empty()) { return ""; }
     std::string encoding;
     for (auto letter : word) {
       encoding += getDigit(letter);
