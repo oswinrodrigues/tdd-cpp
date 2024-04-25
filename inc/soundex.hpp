@@ -15,10 +15,11 @@ private:
     return word.substr(0, 1);
   }
   std::string getDigits(const std::string& word) const {
-    if (word.length() > 1) { return getDigit(); }
+    if (word.length() > 1) { return getDigit(word[1]); }
     return "";
   }
-  std::string getDigit() const {
+  std::string getDigit(char letter) const {
+    if (letter == 'c') { return "2"; }
     return "1";
   }
   std::string zeroPad(const std::string& word) const {
