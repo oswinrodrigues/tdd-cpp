@@ -59,4 +59,7 @@
     - "Testing" is concerned with exhaustively covering the specification.
     - "Test-driving" drives design and implementation. In TDD, we write tests just to specify or describe _the next_ behaviour needed.
     - If the logic won't change anymore, can stop writing tests for that particular behaviour.
+- If driven by the next specified behaviour, and if we write only minimal code to satisfy that specification, then when to consider exceptions e.g. unexpected inputs?
+    - As you implement, have to think about this, but don't have to fix it right then. Can jot a note down in the "test list".
+    - Or can handle it right away, but in a separate TDD cycle, with a separate test.
 - TDD is not a science, it is a craft.
