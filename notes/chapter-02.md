@@ -12,7 +12,9 @@
     - Write no more of a unit test than sufficient to fail. Includes compilation failures.
     - Write only the production code needed to pass the one failing test.
 - Negative feedback (failure) is good. Ensures test honesty.
-    - False positives are bad i.e. tests passing when they shouldn't.
+    - Sometimes, s new test can pass with no change to source. That is, you get 'green' in 'red' stage.
+    - May point to a poor test. False positives are bad i.e. tests passing when they shouldn't.
+    - If test it right, may point to a poor technique. Taking too big (not incremental or minimal enough) step in a previous TDD cycle.
 - Seek incremental, immediate feedback. Test early and often. Safe coding.
     - Easy to debug when you know precisely what new code caused the failure.
     - In other words, source of problem is exposed as soon as you create it.
