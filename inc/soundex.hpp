@@ -20,6 +20,7 @@ private:
   std::string getDigits(const std::string& word) const {
     std::string encoding;
     for (auto letter : word) {
+      if (encoding.length() == maxCodeLength - 1) { break; }
       encoding += getDigit(letter);
     }
     return encoding;
