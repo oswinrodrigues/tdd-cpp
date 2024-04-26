@@ -27,3 +27,7 @@ TEST_F(SoundexEncoding, IgnoresNonAlphabetics) {
 TEST_F(SoundexEncoding, ConvertsMultipleConsonantsToCorrectDigits) {
   ASSERT_THAT(soundex.encode("Acdl"), Eq("A234"));
 }
+
+TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
+  ASSERT_THAT(soundex.encode("Pqrst").length(), Eq(4));
+}
