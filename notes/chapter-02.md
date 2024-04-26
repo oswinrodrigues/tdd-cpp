@@ -15,6 +15,7 @@
     - False positives are bad i.e. tests passing when they shouldn't.
 - Seek incremental, immediate feedback. Test early and often. Safe coding.
     - Easy to debug when you know precisely what new code caused the failure.
+    - In other words, source of problem is exposed as soon as you create it.
     - Trade-off. Sometimes writing whole test clarifies interface design.
 - Commit every time the 'code is green'. Known good states to roll back, if desired.
 - Tests declare the behaviours your system should have.
@@ -35,7 +36,7 @@
 - Don't neglect the "refactor" stage of TDD cycle.
     - Before the small messes add up, making any cleanup at all arduous.
     - Retain existing behaviour (as shown by the test) while improving design.
-    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make source code declarative
+    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make source code declarative and intention-revealing.
     - Declarative separates _interface_ (what) from _implementation_ (how). Clear, readable code. Clean, scalable designs.
     - Sometimes, can defer a cleanup if know the next test will 'drive' it out. But must guarantee that next step; make note in test list.
     - Very satisfying to simplify (or eliminate completely) code, but only when we have confidence it won't break things. Our tests provide that confidence.
