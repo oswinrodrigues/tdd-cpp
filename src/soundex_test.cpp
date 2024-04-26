@@ -29,5 +29,5 @@ TEST_F(SoundexEncoding, ConvertsMultipleConsonantsToCorrectDigits) {
 }
 
 TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
-  ASSERT_THAT(soundex.encode("Pqrst").length(), Eq(4));
+  ASSERT_THAT(soundex.encode("Pqrstabcd").length(), Eq(4));
 }
