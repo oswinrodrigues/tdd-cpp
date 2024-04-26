@@ -53,9 +53,9 @@ private:
     return it == encodings.end() ? "" : it->second;
   }
 
-  std::string zeroPad(const std::string& word) const {
-    auto zeroCount = maxCodeLength - word.length();
-    return word + std::string(zeroCount, '0');
+  std::string zeroPad(const std::string& encoding) const {
+    auto zeroCount = maxCodeLength - encoding.length();
+    return encoding + std::string(zeroCount, '0');
   }
 
   bool isMaxLength(const std::string& encoding) const {
