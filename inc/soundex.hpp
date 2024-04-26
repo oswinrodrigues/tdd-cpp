@@ -14,17 +14,20 @@ private:
   std::string getHead(const std::string& word) const {
     return word.substr(0, 1);
   }
+
   std::string getTail(const std::string& word) const {
     return word.substr(1);
   }
+
   std::string getDigits(const std::string& word) const {
     std::string encoding;
     for (auto letter : word) {
-      if (encoding.length() == maxCodeLength - 1) { break; }
+      if (isMaxLength(encoding)) { break; }
       encoding += getDigit(letter);
     }
     return encoding;
   }
+
   std::string getDigit(char letter) const {
     const std::unordered_map<char, std::string> encodings {
       {'b', "1"},
@@ -49,9 +52,14 @@ private:
     auto it = encodings.find(letter);
     return it == encodings.end() ? "" : it->second;
   }
+
   std::string zeroPad(const std::string& word) const {
     auto zeroCount = maxCodeLength - word.length();
     return word + std::string(zeroCount, '0');
+  }
+
+  bool isMaxLength(const std::string& encoding) const {
+    return encoding.length() == maxCodeLength - 1;
   }
 };
 
