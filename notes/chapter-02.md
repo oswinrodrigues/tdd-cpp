@@ -8,71 +8,73 @@
 
 ## Notes
 
-- Incremental. One test at a time. Don't need all tests to start.
-    - Pick next simplest behaviour. Most straightforward, smallest increment.
-- But can record thoughts of upcoming tests in a "test list".
-    - Code cleanup or refactor reminders go here also.
+- Incremental. One behaviour at a time, one test at a time.
+    - Which remaining behaviour to 'test drive' next? The simplest one - straightforward, small.
+    - Don't need all tests figured out right from the start.
+- That said, can still record any thoughts about upcoming tests in a 'test list'.
+    - Reminders for later cleanup or refactor also go here.
     - A personal memo, a rough note, a thought-dumping ground.
     - Does not constrain what you do and when you do it.
-- Test names must be expressive. A sentence on what it verifies. Same for asserts.
+- Test names must be expressive. A sentence on what the test verifies.
+    - Same goes for 'assert' statements in tests.
 - Three rules of TDD, from 'Uncle Bob' (Robert C. Martin)
     - Write production code only to make a failing test pass.
     - Write no more of a unit test than sufficient to fail. Includes compilation failures.
     - Write only the production code needed to pass the one failing test.
-- Negative feedback (failure) is good. Ensures test honesty.
-    - Sometimes, a new test can pass with no change to the CUT. That is, you get 'green' in 'red' stage.
-    - May point to a poor test. False positives are bad i.e. tests passing when they shouldn't.
-    - If test is right, may point to a poor technique. Taking too big (not incremental or minimal enough) step in a previous TDD cycle.
+- Negative feedback (test failure) is good. Ensures test honesty.
+    - Sometimes, a new test can pass with no change to the CUT. That is, you get 'green' in the 'red' stage.
+    - This may point to a poor test. False positives - tests passing when they shouldn't - are bad.
+    - Or, if the test is right, this may point to a poor TDD technique. Taking too big (not incremental or minimal enough) steps in previous TDD cycles.
 - Seek incremental, immediate feedback. Test early and often. Safe coding.
     - Easy to debug when you know precisely what new code caused the failure.
-    - In other words, source of problem is exposed as soon as you create it.
+    - In other words, root cause of problem is exposed as soon as you create it.
     - Trade-off. Sometimes writing whole test clarifies interface design.
 - Commit every time the 'code is green'. Known good states to roll back, if desired.
 - Tests declare the behaviours your system should have.
     - Tests can be seen as specs. In fact, if crafted well, tests can be more concrete and comprehensive than specs.
-    - Converse: any behaviour in the CUT not (yet) demanded by a test is bad.
-    - This necessitates adding behaviour that is only partial - even trivial or in breach of other specs - to start.
-    - At each step, the CUT should only have the simplest generalized solution for what the set of tests needs.
-- As we write more tests for more behaviours, will automatically self-correct then.
+    - Converse: any behaviour present in the CUT that is not (yet) required by a test is bad.
+    - This philosophy necessitates adding behaviour that is only partial - even trivial or in breach of other specs.
+    - At each step, the CUT should only have the simplest generalized solution for what the set of tests (so far) needs.
+- As we write more tests for more behaviours, this will automatically self-correct then.
     - Think of TDD as if only one spec is being revealed at a time.
-    - Building incrementally, *but* with "continually verified, forward progress".
+    - Building incrementally, but with "continually verified, forward progress".
     - TDD makes such progress possible in the face of incomplete or new information.
-    - After adding new test and behaviour, a previous test may fail. This is good. Self-correction.
+    - After adding a new test and behaviour, a previous test may fail. This is good. Self-correction.
     - Increases speed in long run, avoiding errors from large, complex changes.
-- We make decisions on design and implementation *as* we add tests.
+- We make decisions on design and implementation as we add tests.
 - Be at peace with messy code. TDD saves a time and place to refactor.
     - Defer complexity that slows you down.
     - For example, put a new class and its test in same file. The interface design will keep changing as you test-drive.
 - Don't neglect the "refactor" stage of TDD cycle.
-    - Before the small messes add up, making any cleanup at all arduous.
+    - Do it before the small messes add up and make any cleanup arduous.
     - Retain existing behaviour (as shown by the test) while improving design.
     - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make the CUT declarative and intention-revealing.
-    - Declarative separates _interface_ (what) from _implementation_ (how). Clear, readable code. Clean, scalable designs.
-    - Sometimes, can defer a cleanup if know the next test will 'drive' it out. But must guarantee that next step; make note in test list.
-    - Very satisfying to simplify (or eliminate completely) code, but only when we have confidence it won't break things. Our tests provide that confidence.
+    - "Declarative" separates interface (what) from implementation (how). Clear, readable code. Clean, scalable designs.
+    - Sometimes, can defer a cleanup if you know the next test will 'drive' it out. But must guarantee that next step; make a note in the 'test list'.
+    - Very satisfying to simplify (or completely eliminate) code, but only when we have confidence it won't break things. Our tests provide that confidence.
 - Avoid prematurely optimizing during refactor (or green) stage.
     - Focus on correct behaviour, good design, consistent interfaces, expressive code.
-    - Later, _maybe_, we optimize. But not without first _measuring_.
-- Each cycle, want to make 'green' by generalizing solution.
-    - But don't _over-generalize_. Don't account for future concerns.
+    - Later, maybe, we optimize. But not without first measuring.
+- Each cycle, we want to make 'green' by generalizing solution.
+    - But don't over-generalize. Don't account for future concerns.
 - Tests are independent.
     - Each test has its own separate context e.g. instance of object-under-test.
-    - Each test deals with one precise behaviour. *Even if* two tests end up doing the same steps!
+    - Each test deals with one precise behaviour. Even if two tests end up doing the same steps!
 - Common setup or teardown in test 'fixture' or 'suite'
     - Keeps individual tests focused and clean. Highly abstracted, highly expressive.
     - Facilitates future maintenance by restricting potential changes to one place.
-    - But common setup must re-run in each test. Recall each test has independent context.
+    - But common setup must re-run in each test. Recall: each test has independent context.
 - One assert per test (in general)
     - Focus on the behaviour under test, not the implementing function
     - A distinct behaviour deserves a separate test entirely
-    - Rarely, can add a second assert, as a distinct case for the same test (behaviour), _but only if_ it increases understanding of the behaviour.
+    - Rarely, can add a second assert, as a distinct case for the same test (behaviour), but only if it increases understanding of the behaviour.
 - When to stop writing test cases for the same behaviour?
     - Remember: we are test-driving, not testing.
     - "Testing" is concerned with exhaustively covering the specification.
     - "Test-driving" drives design and implementation. In TDD, we write tests just to specify or describe _the next_ behaviour needed.
     - If the logic won't change anymore, can stop writing tests for that particular behaviour.
 - If driven by the next specified behaviour, and if we write only minimal code to satisfy that specification, then when to consider exceptions e.g. unexpected inputs?
-    - As you implement, have to think about this, but don't have to fix it right then. Can jot a note down in the "test list".
+    - As you implement, have to think about this, but don't have to fix it right then. Can jot a note down in the 'test list'.
     - Or can handle it right away, but in a separate TDD cycle, with a separate test.
 - Sometimes, in the 'red' or 'green' stage, a refactor of test infrastructure or CUT design (respectively) would help.
     - Keep the TDD cycle stages distinct. Do only one thing at a time.
