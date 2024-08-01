@@ -1,5 +1,12 @@
 # TDD: A First Example
 
+## Nomenclature
+
+- "System" is the final end product we want to develop with software
+- "Source" is the code behind the system, the code under test (CUT)
+
+## Notes
+
 - Incremental. One test at a time. Don't need all tests to start.
     - Pick next simplest behaviour. Most straightforward, smallest increment.
 - But can record thoughts of upcoming tests in a "test list".
@@ -12,7 +19,7 @@
     - Write no more of a unit test than sufficient to fail. Includes compilation failures.
     - Write only the production code needed to pass the one failing test.
 - Negative feedback (failure) is good. Ensures test honesty.
-    - Sometimes, a new test can pass with no change to source. That is, you get 'green' in 'red' stage.
+    - Sometimes, a new test can pass with no change to the CUT. That is, you get 'green' in 'red' stage.
     - May point to a poor test. False positives are bad i.e. tests passing when they shouldn't.
     - If test is right, may point to a poor technique. Taking too big (not incremental or minimal enough) step in a previous TDD cycle.
 - Seek incremental, immediate feedback. Test early and often. Safe coding.
@@ -24,7 +31,7 @@
     - Tests can be seen as specs. In fact, if crafted well, tests can be more concrete and comprehensive than specs.
     - Converse: any functionality not demanded by a test is bad.
     - This necessitates adding functionality that is only partial - even trivial or in breach of other specs - to start.
-    - At each step, the source should only have the simplest generalized solution for what the set of tests needs.
+    - At each step, the CUT should only have the simplest generalized solution for what the set of tests needs.
 - As we write more tests for more behaviours, will automatically self-correct then.
     - Think of TDD as if only one spec is being revealed at a time.
     - Building incrementally, *but* with "continually verified, forward progress".
@@ -38,7 +45,7 @@
 - Don't neglect the "refactor" stage of TDD cycle.
     - Before the small messes add up, making any cleanup at all arduous.
     - Retain existing behaviour (as shown by the test) while improving design.
-    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make source code declarative and intention-revealing.
+    - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make the CUT declarative and intention-revealing.
     - Declarative separates _interface_ (what) from _implementation_ (how). Clear, readable code. Clean, scalable designs.
     - Sometimes, can defer a cleanup if know the next test will 'drive' it out. But must guarantee that next step; make note in test list.
     - Very satisfying to simplify (or eliminate completely) code, but only when we have confidence it won't break things. Our tests provide that confidence.
@@ -66,7 +73,7 @@
 - If driven by the next specified behaviour, and if we write only minimal code to satisfy that specification, then when to consider exceptions e.g. unexpected inputs?
     - As you implement, have to think about this, but don't have to fix it right then. Can jot a note down in the "test list".
     - Or can handle it right away, but in a separate TDD cycle, with a separate test.
-- Sometimes, in the 'red' or 'green' stage, a refactor of test infrastructure or source design (respectively) would help.
+- Sometimes, in the 'red' or 'green' stage, a refactor of test infrastructure or CUT design (respectively) would help.
     - Keep the TDD cycle stages distinct. Do only one thing at a time.
     - In this case, stash the changes from the stage you were in, do the refactor, then come back.
 - TDD is not a science, it is a craft.
