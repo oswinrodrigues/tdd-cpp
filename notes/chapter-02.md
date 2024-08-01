@@ -4,6 +4,7 @@
 
 - "System" is the final end product we want to develop with software
 - "Source" is the code behind the system, the code under test (CUT)
+- "Behaviour" is a specific system functionality required by the specs
 
 ## Notes
 
@@ -29,8 +30,8 @@
 - Commit every time the 'code is green'. Known good states to roll back, if desired.
 - Tests declare the behaviours your system should have.
     - Tests can be seen as specs. In fact, if crafted well, tests can be more concrete and comprehensive than specs.
-    - Converse: any functionality not demanded by a test is bad.
-    - This necessitates adding functionality that is only partial - even trivial or in breach of other specs - to start.
+    - Converse: any behaviour in the CUT not (yet) demanded by a test is bad.
+    - This necessitates adding behaviour that is only partial - even trivial or in breach of other specs - to start.
     - At each step, the CUT should only have the simplest generalized solution for what the set of tests needs.
 - As we write more tests for more behaviours, will automatically self-correct then.
     - Think of TDD as if only one spec is being revealed at a time.
