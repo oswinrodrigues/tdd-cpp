@@ -36,3 +36,7 @@ TEST_F(SoundexEncoding, DropsVowelishLetters) {
   // "Vowel-ish" letters = a,e,i,o,u + w,h,y
   ASSERT_THAT(soundex.encode("Baeiouwhycdl"), Eq("B234"));
 }
+
+TEST_F(SoundexEncoding, CombinesDuplicateAdjacentEncodings) {
+  ASSERT_THAT(soundex.encode("Abfcgdt"), Eq("A123"));
+}
