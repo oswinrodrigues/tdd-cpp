@@ -55,6 +55,11 @@ private:
     return encoding;
   }
 
+  std::string getLastDigit(const std::string& encoding) const {
+    if (encoding.empty()) { return ""; }
+    return std::string(1, encoding.back());
+  }
+
   std::string zeroPad(const std::string& encoding) const {
     auto zeroCount = maxCodeLength - encoding.length();
     return encoding + std::string(zeroCount, '0');
