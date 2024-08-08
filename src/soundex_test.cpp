@@ -38,5 +38,8 @@ TEST_F(SoundexEncoding, DropsVowelishLetters) {
 }
 
 TEST_F(SoundexEncoding, CombinesDuplicateAdjacentEncodings) {
+  ASSERT_THAT(soundex.getDigit('b'), Eq(soundex.getDigit('f')));
+  ASSERT_THAT(soundex.getDigit('c'), Eq(soundex.getDigit('g')));
+  ASSERT_THAT(soundex.getDigit('d'), Eq(soundex.getDigit('t')));
   ASSERT_THAT(soundex.encode("Abfcgdt"), Eq("A123"));
 }
