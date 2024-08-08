@@ -6,7 +6,7 @@
 class Soundex {
 public:
   std::string encode(const std::string& word) const {
-    return zeroPad(getHead(word) + getDigits(getTail(word)));
+    return zeroPad(getCapitalHead(word) + getDigits(getTail(word)));
   }
 
   std::string getDigit(char letter) const {
@@ -36,8 +36,8 @@ public:
 private:
   static constexpr size_t maxCodeLength = 4;
 
-  std::string getHead(const std::string& word) const {
-    return word.substr(0, 1);
+  std::string getCapitalHead(const std::string& word) const {
+    return std::string(1, std::toupper(word.front()));
   }
 
   std::string getTail(const std::string& word) const {
