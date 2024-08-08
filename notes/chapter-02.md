@@ -55,6 +55,9 @@
 - Sometimes, in the 'red' or 'green' stage, a refactor of test infrastructure or CUT design (respectively) would help.
     - Keep the TDD cycle stages distinct. Do only one thing at a time.
     - In this case, stash the changes from the stage you were in, do the refactor, then come back.
+- Tip: don't have to make green in one go:
+    - Start with "declaration of intent". The solution's _what_. With unimplemented placeholders.
+    - Then follow with implementing the needful. The solution's _how_.
 
 ## Refactor
 
@@ -84,6 +87,9 @@
     - Focus on the behaviour under test, not the implementing function
     - A distinct behaviour deserves a separate test entirely
     - Rarely, can add a second assert, as a distinct case for the same test (behaviour), but only if it increases understanding of the behaviour.
+- Implicit premises can be made more direct with precondition asserts.
+    - Use sparingly. Often, meaningful naming is simpler and just as effective.
+    - Sometimes, other tests already confirm said preconditions. But also better to be explicit. Use judgement.
 
 ## Tips
 
@@ -95,3 +101,6 @@
 - If we write only the minimal code to satisfy the behaviour (logic) in question, when do we consider exceptions e.g. unexpected inputs?
     - As you implement, have to think about this, but don't have to fix it right then. Make a note in the 'test list'.
     - Or can handle it right away, but in a separate TDD cycle, with a separate test.
+- Sometimes, test needs a function that a real-world user (of the system) won't. Make publicly accessible?
+    - Okay to _selectively_ broaden the public interface of the system. After all, test _is also_ a client of the system.
+    - Especially if it trades off low risk (unlikely + harmless) with high reward (saved time + sanity) for future readers.
