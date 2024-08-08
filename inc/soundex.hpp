@@ -48,7 +48,9 @@ private:
     std::string encoding;
     for (auto letter : word) {
       if (isMaxLength(encoding)) { break; }
-      encoding += getDigit(letter);
+      if (getDigit(letter) != getLastDigit(encoding)) {
+        encoding += getDigit(letter);
+      }
     }
     return encoding;
   }
