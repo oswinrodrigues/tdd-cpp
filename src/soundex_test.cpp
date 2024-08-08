@@ -43,3 +43,7 @@ TEST_F(SoundexEncoding, CombinesDuplicateAdjacentEncodings) {
   ASSERT_THAT(soundex.getDigit('d'), Eq(soundex.getDigit('t')));
   ASSERT_THAT(soundex.encode("Abfcgdt"), Eq("A123"));
 }
+
+TEST_F(SoundexEncoding, CapitalizesFirstLetter) {
+  ASSERT_THAT(soundex.encode("abcd"), StartsWith("A"));
+}
