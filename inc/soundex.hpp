@@ -8,25 +8,6 @@ public:
   std::string encode(const std::string& word) const {
     return zeroPad(getHead(word) + getDigits(getTail(word)));
   }
-private:
-  static constexpr size_t maxCodeLength = 4;
-
-  std::string getHead(const std::string& word) const {
-    return word.substr(0, 1);
-  }
-
-  std::string getTail(const std::string& word) const {
-    return word.substr(1);
-  }
-
-  std::string getDigits(const std::string& word) const {
-    std::string encoding;
-    for (auto letter : word) {
-      if (isMaxLength(encoding)) { break; }
-      encoding += getDigit(letter);
-    }
-    return encoding;
-  }
 
   std::string getDigit(char letter) const {
     const std::unordered_map<char, std::string> encodings {
@@ -51,6 +32,25 @@ private:
     };
     auto it = encodings.find(letter);
     return it == encodings.end() ? "" : it->second;
+  }
+private:
+  static constexpr size_t maxCodeLength = 4;
+
+  std::string getHead(const std::string& word) const {
+    return word.substr(0, 1);
+  }
+
+  std::string getTail(const std::string& word) const {
+    return word.substr(1);
+  }
+
+  std::string getDigits(const std::string& word) const {
+    std::string encoding;
+    for (auto letter : word) {
+      if (isMaxLength(encoding)) { break; }
+      encoding += getDigit(letter);
+    }
+    return encoding;
   }
 
   std::string zeroPad(const std::string& encoding) const {
