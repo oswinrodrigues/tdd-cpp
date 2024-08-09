@@ -66,12 +66,14 @@ private:
   void encodeTail(const std::string& word, std::string& encoding) const {
     for (auto letter : getTail(word)) {
       if (isMaxLength(encoding)) { break; }
-
-      auto newDigit = getDigit(letter);
-      if (newDigit == notADigit || newDigit == getLastDigit(encoding)) { continue; }
-
-      encoding += newDigit;
+      encodeTailLetter(letter, encoding);
     }
+  }
+
+  void encodeTailLetter(char letter, std::string& encoding) const {
+      auto newDigit = getDigit(letter);
+      if (newDigit == notADigit || newDigit == getLastDigit(encoding)) { return; }
+      encoding += newDigit;
   }
 
   std::string getLastDigit(const std::string& encoding) const {
