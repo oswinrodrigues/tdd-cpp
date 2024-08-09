@@ -66,8 +66,14 @@
     - Sometimes, can defer a cleanup if you know the next test will 'drive' it out. But must guarantee that next step; make a note in the 'test list'.
 - Retain existing behaviour (as shown by the test) while improving design.
     - Very satisfying to simplify (or completely eliminate) code, but only when we have confidence it won't break things. Our tests provide that confidence.
-- Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make the CUT declarative and intention-revealing.
-    - "Declarative" separates interface (what) from implementation (how). Clear, readable code. Clean, scalable designs.
+- Some examples of refactoring:
+    - Eliminate hardcoding and code duplication
+    - Enhance test abstraction and expressiveness
+    - Make the CUT declarative and intention-revealing
+        - "Declarative" separates interface (what) from implementation (how). Clear, readable code. Clean, scalable designs.
+    - Ensure functions follow Single-Responsibility Principle (SRP) from SOLID
+        - Function should have only one reason to change: either due to a change in policy (what) or implementation (how).
+        - In other words, a function should not be concerned with both, policy and implementation.
 - Don't make many refactoring changes at once. Follow TDD's incremental style. Verify each change with passing tests.
 - Avoid prematurely optimizing during refactor (or green) stage.
     - Focus on correct behaviour, good design, consistent interfaces, expressive code.
