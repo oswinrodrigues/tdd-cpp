@@ -31,10 +31,11 @@ public:
       {'r', "6"}
     };
     auto it = encodings.find(std::tolower(letter));
-    return it == encodings.end() ? "" : it->second;
+    return it == encodings.end() ? notADigit : it->second;
   }
 private:
   static constexpr size_t maxCodeLength = 4;
+  static constexpr std::string notADigit = "*";
 
   std::string getCapitalHead(const std::string& word) const {
     return std::string(1, std::toupper(word.front()));
@@ -50,7 +51,7 @@ private:
       if (isMaxLength(encoding)) { break; }
 
       auto newDigit = getDigit(letter);
-      if (newDigit == getLastDigit(encoding)) { continue; }
+      if (newDigit == notADigit || newDigit == getLastDigit(encoding)) { continue; }
 
       encoding += newDigit;
     }
@@ -58,7 +59,7 @@ private:
   }
 
   std::string getLastDigit(const std::string& encoding) const {
-    if (encoding.empty()) { return ""; }
+    if (encoding.empty()) { return notADigit; }
     return std::string(1, encoding.back());
   }
 
