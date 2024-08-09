@@ -54,7 +54,16 @@ private:
 
   std::string getDigits(const std::string& word) const {
     std::string encoding;
-    encoding += getDigit(getHead(word));
+    encoding += encodeHead(word);
+    encodeTail(word, encoding);
+    return encoding;
+  }
+
+  std::string encodeHead(const std::string& word) const {
+    return getDigit(getHead(word));
+  }
+
+  void encodeTail(const std::string& word, std::string& encoding) const {
     for (auto letter : getTail(word)) {
       if (isMaxLength(encoding)) { break; }
 
@@ -63,7 +72,6 @@ private:
 
       encoding += newDigit;
     }
-    return encoding;
   }
 
   std::string getLastDigit(const std::string& encoding) const {
