@@ -51,7 +51,7 @@ private:
   std::string getDigits(const std::string& word) const {
     std::string encoding;
     encoding += getDigit(word.front());
-    for (auto letter : word) {
+    for (auto letter : getTail(word)) {
       if (isMaxLength(encoding)) { break; }
 
       auto newDigit = getDigit(letter);
