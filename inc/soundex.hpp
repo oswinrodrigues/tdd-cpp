@@ -54,13 +54,13 @@ private:
 
   std::string getDigits(const std::string& word) const {
     std::string encoding;
-    encoding += encodeHead(word);
+    encodeHead(word, encoding);
     encodeTail(word, encoding);
     return encoding;
   }
 
-  std::string encodeHead(const std::string& word) const {
-    return getDigit(getHead(word));
+  void encodeHead(const std::string& word, std::string& encoding) const {
+    encoding += getDigit(getHead(word));
   }
 
   void encodeTail(const std::string& word, std::string& encoding) const {
