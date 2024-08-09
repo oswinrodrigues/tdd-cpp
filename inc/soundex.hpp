@@ -6,7 +6,9 @@
 class Soundex {
 public:
   std::string encode(const std::string& word) const {
-    return zeroPad(getCapitalHead(word) + getTail(getDigits(word)));
+    auto capitalHead = getCapitalHead(word);
+    auto encodedTail = getTail(getDigits(word));
+    return zeroPad(capitalHead + encodedTail);
   }
 
   std::string getDigit(char letter) const {
@@ -30,7 +32,8 @@ public:
       {'n', "5"},
       {'r', "6"}
     };
-    auto it = encodings.find(std::tolower(letter));
+    auto sanitizedLetter = std::tolower(letter);
+    auto it = encodings.find(sanitizedLetter);
     return it == encodings.end() ? notADigit : it->second;
   }
 private:
