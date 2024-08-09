@@ -49,7 +49,8 @@ private:
     for (auto letter : word) {
       if (isMaxLength(encoding)) { break; }
 
-      auto newDigit = getDigit(letter);
+      auto lowerCaseLetter = std::tolower(letter);
+      auto newDigit = getDigit(lowerCaseLetter);
       if (newDigit == getLastDigit(encoding)) { continue; }
 
       encoding += newDigit;
