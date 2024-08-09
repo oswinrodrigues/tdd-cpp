@@ -6,7 +6,7 @@
 class Soundex {
 public:
   std::string encode(const std::string& word) const {
-    auto capitalHead = getCapitalHead(word);
+    auto capitalHead = capitalizeLetter(getHead(word));
     auto encodedTail = getTail(getDigits(word));
     return zeroPad(capitalHead + encodedTail);
   }
@@ -40,17 +40,21 @@ private:
   static constexpr size_t maxCodeLength = 4;
   static constexpr std::string notADigit = "*";
 
-  std::string getCapitalHead(const std::string& word) const {
-    return std::string(1, std::toupper(word.front()));
+  char getHead(const std::string& word) const {
+    return word.front();
   }
 
   std::string getTail(const std::string& word) const {
     return word.substr(1);
   }
 
+  std::string capitalizeLetter(char letter) const {
+    return std::string(1, std::toupper(letter));
+  }
+
   std::string getDigits(const std::string& word) const {
     std::string encoding;
-    encoding += getDigit(word.front());
+    encoding += getDigit(getHead(word));
     for (auto letter : getTail(word)) {
       if (isMaxLength(encoding)) { break; }
 
