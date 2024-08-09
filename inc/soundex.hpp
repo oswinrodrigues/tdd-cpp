@@ -9,7 +9,7 @@ public:
     return zeroPad(getCapitalHead(word) + getDigits(getTail(word)));
   }
 
-  std::string getDigit(char lowerCaseLetter) const {
+  std::string getDigit(char letter) const {
     const std::unordered_map<char, std::string> encodings {
       {'b', "1"},
       {'f', "1"},
@@ -30,7 +30,7 @@ public:
       {'n', "5"},
       {'r', "6"}
     };
-    auto it = encodings.find(lowerCaseLetter);
+    auto it = encodings.find(std::tolower(letter));
     return it == encodings.end() ? "" : it->second;
   }
 private:
@@ -49,8 +49,7 @@ private:
     for (auto letter : word) {
       if (isMaxLength(encoding)) { break; }
 
-      auto lowerCaseLetter = std::tolower(letter);
-      auto newDigit = getDigit(lowerCaseLetter);
+      auto newDigit = getDigit(letter);
       if (newDigit == getLastDigit(encoding)) { continue; }
 
       encoding += newDigit;
