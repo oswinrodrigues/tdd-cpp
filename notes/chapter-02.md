@@ -68,6 +68,7 @@
     - Very satisfying to simplify (or completely eliminate) code, but only when we have confidence it won't break things. Our tests provide that confidence.
 - Some examples: eliminate hardcoding and code duplication; enhance test abstraction and expressiveness; make the CUT declarative and intention-revealing.
     - "Declarative" separates interface (what) from implementation (how). Clear, readable code. Clean, scalable designs.
+- Don't make many refactoring changes at once. Follow TDD's incremental style. Verify each change with passing tests.
 - Avoid prematurely optimizing during refactor (or green) stage.
     - Focus on correct behaviour, good design, consistent interfaces, expressive code.
     - Later, maybe, we optimize. But not without first measuring.
@@ -90,6 +91,8 @@
 - Implicit premises can be made more direct with precondition asserts.
     - Use sparingly. Often, meaningful naming is simpler and just as effective.
     - Sometimes, other tests already confirm said preconditions. But also better to be explicit. Use judgement.
+- Some tests don't care about absolute values, just relative. Remember, tests validate behaviour not values.
+    - e.g. checking that two differnet inputs result in the same output. Don't care what that output itself is.
 
 ## Tips
 
@@ -99,8 +102,13 @@
     - "Test-driving" drives design and implementation. In TDD, we write tests just to specify or describe _the next_ behaviour needed.
     - If the logic won't change anymore, can stop writing tests for that particular behaviour.
 - If we write only the minimal code to satisfy the behaviour (logic) in question, when do we consider exceptions e.g. unexpected inputs?
-    - As you implement, have to think about this, but don't have to fix it right then. Make a note in the 'test list'.
-    - Or can handle it right away, but in a separate TDD cycle, with a separate test.
+    - As you go, must think about critical concerns beyond the explicit specs.
+    - But don't have to fix it right then and there. Can make a note in the 'test list'.
+    - Or can pause and handle it right away, but in a separate TDD cycle, with a separate test.
+- Thinking about unspecified behaviours may prod you to revisit a previous test
+    - To account for the unspecified behaviour and see if the test passes. This goes beyond TDD to testing after-the-fact.
+    - If passes, can keep modification to explicitly document the unspecified behaviour. Or can discard if deemed unnecessary.
+- In after-the-fact testing, if passes immediately and you were unsure it would, might want to revisit the relevant system code
 - Sometimes, test needs a function that a real-world user (of the system) won't. Make publicly accessible?
     - Okay to _selectively_ broaden the public interface of the system. After all, test _is also_ a client of the system.
     - Especially if it trades off low risk (unlikely + harmless) with high reward (saved time + sanity) for future readers.
