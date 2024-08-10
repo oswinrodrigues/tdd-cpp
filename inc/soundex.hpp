@@ -64,13 +64,13 @@ private:
   }
 
   void encodeTail(const std::string& word, std::string& encoding) const {
-    for (auto letter : getTail(word)) {
+    for (auto i = 1u ; i < word.length(); i++) {
       if (isMaxLength(encoding)) { break; }
-      encodeTailLetter(letter, encoding);
+      encodeTailLetter(word[i], word[i-1], encoding);
     }
   }
 
-  void encodeTailLetter(char letter, std::string& encoding) const {
+  void encodeTailLetter(char letter, char lastLetter, std::string& encoding) const {
       auto newDigit = getDigit(letter);
       if (newDigit == notADigit) { return; }
       if (newDigit == getLastDigit(encoding) && !isVowel(lastLetter)) { return; }
@@ -80,6 +80,13 @@ private:
   std::string getLastDigit(const std::string& encoding) const {
     if (encoding.empty()) { return notADigit; }
     return std::string(1, encoding.back());
+  }
+
+  bool isVowel(char letter) const {
+    auto setOfVowels = std::string("aeiouy");
+    auto sanitizedLetter = std::tolower(letter);
+    auto findResult = setOfVowels.find(sanitizedLetter);
+    return findResult != std::string::npos;
   }
 
   std::string zeroPad(const std::string& encoding) const {
