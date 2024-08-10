@@ -55,3 +55,8 @@ TEST_F(SoundexEncoding, CapitalizesHead) {
 TEST_F(SoundexEncoding, IgnoresTailCase) {
   ASSERT_THAT(soundex.encode("Abcd"), Eq(soundex.encode("ABCD")));
 }
+
+TEST_F(SoundexEncoding, DuplicatesAdjacentEncodingsWhenSeparatedByVowels) {
+  // "Vowel" letters = a,e,i,o,u + y (excludes w,h)
+  ASSERT_THAT(soundex.encode("Jbob"), Eq("J110"));
+}
