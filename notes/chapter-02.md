@@ -35,7 +35,19 @@
     - Trade-off. Sometimes writing whole test clarifies interface design.
 - We make decisions on design and implementation as we add tests.
 - TDD is not a science, it is a craft.
-
+    - It is honed by repeated practice. DO this with katas (section 11.5).
+- TDD produces software that:
+    - The customer wants. Tests concretely show specs are met.
+        - Even for performance. TDD delivers the _requested_ performance and minimizes the cost of _over_-optimization
+    - Works. Tests concretely show expected functionality.
+        - Not silver bullet. Still susceptible to bugs, only fewer and less critical.
+        - Still need other forms of after-the-fact testing (vs. before-the-fact test-driving).
+    - Is written well. Less time spent trying to understand.
+        - Makes refactoring safe and easy, as mentioned below. Low barrier to cleaning up mess.
+        - Also because tests serve as documentation for the CUT, as mentioned above.
+    - Is designed well. Meaning it's easily changed.
+        - Easy changeability is both a result of an aid towards better design quality.
+        - CUT's testability forces it to be designed with SOLID principles and other design best practices.
 
 ## Red
 
