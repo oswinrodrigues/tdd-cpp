@@ -72,7 +72,8 @@ private:
 
   void encodeTailLetter(char letter, std::string& encoding) const {
       auto newDigit = getDigit(letter);
-      if (newDigit == notADigit || newDigit == getLastDigit(encoding)) { return; }
+      if (newDigit == notADigit) { return; }
+      if (newDigit == getLastDigit(encoding) && !isVowel(lastLetter)) { return; }
       encoding += newDigit;
   }
 
