@@ -107,10 +107,13 @@
     - "Testing" is concerned with exhaustively covering the specification.
     - "Test-driving" drives design and implementation. In TDD, we write tests just to specify or describe _the next_ behaviour needed.
     - If the logic won't change anymore, can stop writing tests for that particular behaviour.
-- If we write only the minimal code to satisfy the behaviour (logic) in question, when do we consider exceptions e.g. unexpected inputs?
-    - As you go, must think about critical concerns beyond the explicit specs.
+- If we write only the minimal code to satisfy the spec-ed logic, when to consider unspecified behaviours e.g. unexpected inputs?
+    - Good TDD that produces robust software will think about critical concerns beyond the explicit, limited specs.
     - But don't have to fix it right then and there. Can make a note in the 'test list'.
     - Or can pause and handle it right away, but in a separate TDD cycle, with a separate test.
+- Answers to questions about unspecified behaviours are not always clear or known. Ask the customer.
+    - One benefit of TDD is that it immediately documents the decision (via a test)
+    - So no analysis time is wasted in the future to decipher how the CUT handles an edge case
 - Thinking about unspecified behaviours may prod you to revisit a previous test
     - To account for the unspecified behaviour and see if the test passes. This goes beyond TDD to testing after-the-fact.
     - If passes, can keep modification to explicitly document the unspecified behaviour. Or can discard if deemed unnecessary.
