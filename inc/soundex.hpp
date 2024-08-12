@@ -1,14 +1,14 @@
 #ifndef SOUNDEX_HPP
 #define SOUNDEX_HPP
 
-#include <string>
+#include "string_util.hpp"
 
 class Soundex {
 public:
   std::string encode(const std::string& word) const {
-    auto capitalHead = capitalizeLetter(getHead(word));
+    auto capitalHead = str_util::charToString(toupper(word.front()));
     auto encodedTail = getTail(getDigits(word));
-    return zeroPad(capitalHead + encodedTail);
+    return str_util::zeroPad(capitalHead + encodedTail, maxCodeLength);
   }
 
   std::string getDigit(char letter) const {
@@ -32,7 +32,7 @@ public:
       {'n', "5"},
       {'r', "6"}
     };
-    auto sanitizedLetter = std::tolower(letter);
+    auto sanitizedLetter = tolower(letter);
     auto it = encodings.find(sanitizedLetter);
     return it == encodings.end() ? notADigit : it->second;
   }
@@ -40,16 +40,8 @@ private:
   static constexpr size_t maxCodeLength = 4;
   static constexpr std::string notADigit = "*";
 
-  char getHead(const std::string& word) const {
-    return word.front();
-  }
-
   std::string getTail(const std::string& word) const {
     return word.substr(1);
-  }
-
-  std::string capitalizeLetter(char letter) const {
-    return std::string(1, std::toupper(letter));
   }
 
   std::string getDigits(const std::string& word) const {
@@ -60,7 +52,7 @@ private:
   }
 
   void encodeHead(const std::string& word, std::string& encoding) const {
-    encoding += getDigit(getHead(word));
+    encoding += getDigit(word.front());
   }
 
   void encodeTail(const std::string& word, std::string& encoding) const {
@@ -73,25 +65,13 @@ private:
   void encodeTailLetter(char letter, char lastLetter, std::string& encoding) const {
       auto newDigit = getDigit(letter);
       if (newDigit == notADigit) { return; }
-      if (newDigit == getLastDigit(encoding) && !isVowel(lastLetter)) { return; }
+      if (newDigit == getLastDigit(encoding) && !str_util::isVowel(lastLetter)) { return; }
       encoding += newDigit;
   }
 
   std::string getLastDigit(const std::string& encoding) const {
     if (encoding.empty()) { return notADigit; }
-    return std::string(1, encoding.back());
-  }
-
-  bool isVowel(char letter) const {
-    auto setOfVowels = std::string("aeiouy");
-    auto sanitizedLetter = std::tolower(letter);
-    auto findResult = setOfVowels.find(sanitizedLetter);
-    return findResult != std::string::npos;
-  }
-
-  std::string zeroPad(const std::string& encoding) const {
-    auto zeroCount = maxCodeLength - encoding.length();
-    return encoding + std::string(zeroCount, '0');
+    return str_util::charToString(encoding.back());
   }
 
   bool isMaxLength(const std::string& encoding) const {
