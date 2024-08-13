@@ -133,3 +133,4 @@
 - Sometimes, test needs a function that a real-world user (of the system) won't. Make publicly accessible?
     - Okay to _selectively_ broaden the public interface of the system. After all, test _is also_ a client of the system.
     - Especially if it trades off low risk (unlikely + harmless) with high reward (saved time + sanity) for future readers.
+- Even reusable util functions or classes written (for the system to use) need tests of their own!
