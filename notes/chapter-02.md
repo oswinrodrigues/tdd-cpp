@@ -103,6 +103,11 @@
     - Keeps individual tests focused and clean. Highly abstracted, highly expressive.
     - Facilitates future maintenance by restricting potential changes to one place.
     - But common setup must re-run in each test. Recall: each test has independent context.
+- When to stop writing test cases for the same behaviour?
+    - Remember: we are test-driving, not testing.
+    - "Testing" is concerned with exhaustively covering the specification.
+    - "Test-driving" drives design and implementation. Write tests just to capture _the next_ behaviour needed.
+    - If the logic won't change anymore, can stop writing tests for that particular behaviour.
 - Strive for one assert per test (in general)
     - Focus on the behaviour under test, not the implementing function
     - A distinct behaviour deserves a separate test entirely
@@ -113,14 +118,9 @@
 - Some tests don't care about absolute values, just relative. Remember, tests validate behaviour not values.
     - e.g. checking that two differnet inputs result in the same output. Don't care what that output itself is.
 
-## Tips
+## Implicit Specs
 
-- When to stop writing test cases for the same behaviour?
-    - Remember: we are test-driving, not testing.
-    - "Testing" is concerned with exhaustively covering the specification.
-    - "Test-driving" drives design and implementation. In TDD, we write tests just to specify or describe _the next_ behaviour needed.
-    - If the logic won't change anymore, can stop writing tests for that particular behaviour.
-- If we write only the minimal code to satisfy the spec-ed logic, when to consider unspecified behaviours e.g. unexpected inputs?
+- If we write only minimal code to satisfy the spec-ed logic, when to consider unspecified behaviours e.g. unexpected inputs?
     - Good TDD that produces robust software will think about critical concerns beyond the explicit, limited specs.
     - But don't have to fix it right then and there. Can make a note in the 'test list'.
     - Or can pause and handle it right away, but in a separate TDD cycle, with a separate test.
@@ -131,6 +131,9 @@
     - To account for the unspecified behaviour and see if the test passes. This goes beyond TDD to testing after-the-fact.
     - If passes, can keep modification to explicitly document the unspecified behaviour. Or can discard if deemed unnecessary.
 - In after-the-fact testing, if passes immediately and you were unsure it would, might want to revisit the relevant system code
+
+## Tips
+
 - Sometimes, test needs a function that a real-world user (of the system) won't. Make publicly accessible?
     - Okay to _selectively_ broaden the public interface of the system. After all, test _is also_ a client of the system.
     - Especially if it trades off low risk (unlikely + harmless) with high reward (saved time + sanity) for future readers.
