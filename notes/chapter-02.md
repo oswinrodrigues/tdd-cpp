@@ -6,22 +6,36 @@
 - "CUT" is Code Under Test, or the "production code" of the system
 - "Behaviour" is a specific system functionality required by the specs
 
-## Method
+## Why Care?
 
-- Three rules of TDD, from 'Uncle Bob' (Robert C. Martin)
-    - Write production code only to make a failing test pass.
-    - Write no more of a unit test than sufficient to fail. Includes compilation failures.
-    - Write only the production code needed to pass the one failing test.
-- Incremental. One behaviour at a time, one test at a time.
+TDD produces software that:
+
+- The customer wants. Tests concretely show specs are met.
+    - Even for performance. TDD delivers the _requested_ performance and minimizes the cost of _over_-optimization
+- Works. Tests concretely show expected functionality.
+    - Not silver bullet. Still susceptible to bugs, only fewer and less critical.
+    - Still need other forms of after-the-fact _testing_ (vs. before-the-fact _test-driving_).
+- Is written well. Less time spent trying to understand.
+    - Makes refactoring safe and easy, as mentioned below. Low barrier to cleaning up mess.
+    - Also because tests serve as documentation for the CUT, as mentioned below.
+- Is designed well. Meaning it's easily changed.
+    - Easy changeability is both a result of and an aid towards better design quality.
+    - The need for CUT's testability forces it to be designed with SOLID principles and other design best practices.
+
+## Rules
+
+Three rules of TDD, from 'Uncle Bob' (Robert C. Martin)
+
+- Write production code only to make a failing test pass.
+- Write no more of a unit test than sufficient to fail. Includes compilation failures.
+- Write only the production code needed to pass the one failing test.
+
+## Incremental Approach
+
+- One behaviour at a time, one test at a time.
     - Which remaining behaviour to 'test drive' next? The simplest one - straightforward, small.
     - Don't need all tests figured out right from the start.
-- Can record thoughts about upcoming behaviours or tests in a 'test list'.
-    - Reminders for later cleanup or refactor also go here.
-    - A personal memo, a rough note, a thought-dumping ground. Does not constrain what you do and when you do it.
-- Tests declare the behaviours your system should have.
-    - Tests can be seen as specs. In fact, if crafted well, tests can be more concrete and comprehensive than specs.
-    - Tests can be seen as documentation, expressing clearly how the CUT is designed, how it's to be used, etc.
-- Converse: any behaviour present in the CUT that is not (yet) required by a test is bad.
+- Any behaviour present in the CUT that is not (yet) required by a test is bad.
     - At each iteration, the CUT should only have the simplest generalized solution for what the set of tests (so far) needs.
     - This philosophy necessitates adding behaviour that is only partial, or trivial, or even in breach of other specs.
 - As we write more tests for more behaviours, this will automatically self-correct then.
@@ -33,22 +47,21 @@
     - Easy to debug when you know precisely what new code caused the failure. Root cause is exposed as soon as you create it.
     - Seek immediate, incremental feedback. Test early, often. Makes for safe coding.
     - Trade-off. Sometimes writing whole test clarifies interface design.
-- We make decisions on design and implementation as we add tests.
-- TDD is not a science, it is a craft.
-    - It is honed by repeated practice. Katas help here. Each repetition, try a different order or solution approach.
-    - Your style will evolve as you do TDD more and more. So will your judgement calls.
-- TDD produces software that:
-    - The customer wants. Tests concretely show specs are met.
-        - Even for performance. TDD delivers the _requested_ performance and minimizes the cost of _over_-optimization
-    - Works. Tests concretely show expected functionality.
-        - Not silver bullet. Still susceptible to bugs, only fewer and less critical.
-        - Still need other forms of after-the-fact testing (vs. before-the-fact test-driving).
-    - Is written well. Less time spent trying to understand.
-        - Makes refactoring safe and easy, as mentioned below. Low barrier to cleaning up mess.
-        - Also because tests serve as documentation for the CUT, as mentioned above.
-    - Is designed well. Meaning it's easily changed.
-        - Easy changeability is both a result of an aid towards better design quality.
-        - CUT's testability forces it to be designed with SOLID principles and other design best practices.
+- We make decisions on design and implementation _as_ we add tests.
+
+## Implicit Specs
+
+- If we write only minimal code to satisfy the spec-ed logic, when to consider unspecified behaviours e.g. unexpected inputs?
+    - Good TDD that produces robust software will think about critical concerns beyond the explicit, limited specs.
+    - But don't have to fix it right then and there. Can make a note in the 'test list'.
+    - Or can pause and handle it right away, but in a separate TDD cycle, with a separate test.
+- Answers to questions about unspecified behaviours are not always clear or known. Ask the customer.
+    - One benefit of TDD is that it immediately documents the decision (via a test)
+    - So no analysis time is wasted in the future to decipher how the CUT handles an edge case
+- Thinking about unspecified behaviours may prod you to revisit a previous test
+    - To account for the unspecified behaviour and see if the test passes. This goes beyond TDD to testing after-the-fact.
+    - If passes, can keep modification to explicitly document the unspecified behaviour. Or can discard if deemed unnecessary.
+- In after-the-fact testing, if passes immediately and you were unsure it would, might want to revisit the relevant system code
 
 ## Red
 
@@ -92,8 +105,11 @@
     - Focus on correct behaviour, good design, consistent interfaces, expressive code.
     - Later, maybe, we optimize. But not without first measuring.
 
-## Tests
+## Better Tests
 
+- Tests declare the behaviours your system should have.
+    - Tests can be seen as specs. In fact, if crafted well, tests can be more concrete and comprehensive than specs.
+    - Tests can be seen as documentation, expressing clearly how the CUT is designed, how it's to be used, etc.
 - Test names must be expressive. A sentence on what the test verifies.
     - Same goes for 'assert' statements in tests.
 - Tests must be independent.
@@ -118,22 +134,14 @@
 - Some tests don't care about absolute values, just relative. Remember, tests validate behaviour not values.
     - e.g. checking that two differnet inputs result in the same output. Don't care what that output itself is.
 
-## Implicit Specs
-
-- If we write only minimal code to satisfy the spec-ed logic, when to consider unspecified behaviours e.g. unexpected inputs?
-    - Good TDD that produces robust software will think about critical concerns beyond the explicit, limited specs.
-    - But don't have to fix it right then and there. Can make a note in the 'test list'.
-    - Or can pause and handle it right away, but in a separate TDD cycle, with a separate test.
-- Answers to questions about unspecified behaviours are not always clear or known. Ask the customer.
-    - One benefit of TDD is that it immediately documents the decision (via a test)
-    - So no analysis time is wasted in the future to decipher how the CUT handles an edge case
-- Thinking about unspecified behaviours may prod you to revisit a previous test
-    - To account for the unspecified behaviour and see if the test passes. This goes beyond TDD to testing after-the-fact.
-    - If passes, can keep modification to explicitly document the unspecified behaviour. Or can discard if deemed unnecessary.
-- In after-the-fact testing, if passes immediately and you were unsure it would, might want to revisit the relevant system code
-
 ## Tips
 
+- TDD is not a science, it is a craft.
+    - It is honed by repeated practice. Katas help here. Each repetition, try a different order or solution approach.
+    - Your style will evolve as you do TDD more and more. So will your judgement calls.
+- While only focus on one test (behaviour) at a time, can record thoughts about upcoming tests (behaviours) in a 'test list'.
+    - Reminders for later cleanup or refactor also go here.
+    - A personal memo, a rough note, a thought-dumping ground. Does not constrain what you do and when you do it.
 - Sometimes, test needs a function that a real-world user (of the system) won't. Make publicly accessible?
     - Okay to _selectively_ broaden the public interface of the system. After all, test _is also_ a client of the system.
     - Especially if it trades off low risk (unlikely + harmless) with high reward (saved time + sanity) for future readers.
