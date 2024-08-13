@@ -19,10 +19,9 @@ static constexpr bool isLetterInString(char letter, const std::string& string) {
     return findResult != std::string::npos;
 }
 
-static constexpr auto setOfVowels = std::string("aeiouy");
+static constexpr auto lowerCaseVowels = std::string("aeiouy");
 static constexpr bool isVowel(char letter) {
-    auto sanitizedLetter = tolower(letter);
-    return isLetterInString(sanitizedLetter, setOfVowels);
+    return isLetterInString(tolower(letter), lowerCaseVowels);
 }
 
 } // namespace
