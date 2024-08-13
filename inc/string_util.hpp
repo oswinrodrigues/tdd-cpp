@@ -10,6 +10,7 @@ static constexpr std::string charToString(char letter) {
 }
 
 static constexpr std::string zeroPad(const std::string& string, uint32_t maxLength) {
+    if (string.length() >= maxLength) { return string; }
     auto zeroCount = maxLength - string.length();
     return string + std::string(zeroCount, '0');
 }
