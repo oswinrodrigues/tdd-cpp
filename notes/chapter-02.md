@@ -35,7 +35,8 @@
     - Trade-off. Sometimes writing whole test clarifies interface design.
 - We make decisions on design and implementation as we add tests.
 - TDD is not a science, it is a craft.
-    - It is honed by repeated practice. DO this with katas (section 11.5).
+    - It is honed by repeated practice. Katas help here. Each repetition, try a different order or solution approach.
+    - Your style will evolve as you do TDD more and more. So will your judgement calls.
 - TDD produces software that:
     - The customer wants. Tests concretely show specs are met.
         - Even for performance. TDD delivers the _requested_ performance and minimizes the cost of _over_-optimization
