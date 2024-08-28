@@ -62,6 +62,16 @@
 
 ## Three Rules
 
+1. Write production code only to pass a failing unit test.
+    - In other words, write tests first.
+    - Specify, via test, behaviour you _will_ build.
+2. Write no more of a unit test than sufficient to fail (compile fails too).
+    - In other words, proceed as incrementally as possible, getting feedback as soon / early as possible.
+    - Controversial; case-by-case basis. Sometimes, long build times. Other times, more effective to flesh out design of a full test first.
+3. Write no more production code than necessary to pass the one failing unit test.
+    - In other words, write only what the current set of tests specifies / requires.
+    - If violated, Rule 1 won't work (next test won't fail) and the process breaks down.
+
 ## 'Green On Red'
 
 ## Mindsets for Success
