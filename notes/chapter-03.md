@@ -33,6 +33,33 @@
 
 ## Red-Green-Refactor Cycle
 
+- Short feedback loop that drives development.
+    - Red: write a failing test.
+    - Green: write behaviour to pass the test.
+    - Refactor: improve design without changing behaviour.
+- Make this process second nature to free the mind to think about the _real_ challenge: building high quality code.
+    - TDD is simple, but not mindless. Much meaty problem-solving happens along the way. Some examples below.
+- Write small test.
+    - What next unit to increment system by?
+    - The test assumes an interface. Is it the best way to use system?
+    - Is the test highly expressive in how it documents behaviour?
+- Ensure new test fails.
+    - If not, see 'Green on Red' section below for questions to ask.
+- Write code to pass test.
+    - Is it the minimum code necessary?
+    - Jot notes on where new code needs cleaning.
+- Ensure all tests pass.
+    - If new test still fails, is the new code enough? Is the test wrong?
+    - If old test now fails, how did the new code break existing behaviour?
+- Clean up new changes.
+    - Any code smells? Duplication, hardcoding, coupling, etc.
+    - Good design principles in overall design of system so far?
+    - Other code (that you didn't touch) need design updates?
+    - Do tests need refactoring for greater brevity, readability?
+- Ensure all tests pass.
+    - If not, what in the refactor broke it?
+    - If yes, do the current set of tests offer enough confidence?
+
 ## Three Rules
 
 ## 'Green On Red'
