@@ -74,6 +74,39 @@
 
 ## 'Green On Red'
 
+Important to get red first. Not just a ritual.
+- After adding behaviour required by the new test, running tests won't give any real feedback, since they passed even before.
+- Or worse, if you proceed thinking the green means the new behaviour is correct, this can lead to writing untested code under the illusion of test-driven safety.
+
+Premature passes can happen if you:
+- Run the wrong tests.
+    - New test won't run if: didn't build, was disabled, filtered subset omits it.
+    - (Action) Pay attention to test count in logs. Even better, find the new test's name.
+- Test the wrong code.
+    - Didn't save or build. Or build failure went unnoticed. Or built, but not linked in.
+    - Testing wrong class e.g mocked class or mere interface, not the real deal.
+- Expect the wrong behaviour.
+    - Asserting the opposite response to what you actually want.
+- Incorrectly assumed the specified behaviour is new.
+    - (Action) Examine the system for this already-existing behaviour. Understand, then move on.
+    - Good thing! Increases understanding of system _and_ its external dependencies.
+- Incremented system in an unfortunate order.
+    - Sometimes the chosen path of progression is simply 'optimal'. It covers multiple bases early on, even with the simplest, most minimal code (Rule 3).
+- Conceptually linked (coupled) production code.
+    - Redundant interface methods, for convenience or clarity e.g. `getSize()` vs. `isEmpty()`. Since closely related, if one already developed, test for the next may immediately pass.
+    - (Action) To ensure both are covered in our testing, either:
+        - Use a single helper or custom assert that verfies both internally, or...
+        - Explicitly test the link between the two, and then only continue with one going forward.
+- Wrote too much code in a previous iteration.
+    - Breaking Rule 3 in turn breaks Rule 1. TDD falls apart; its benefits fade.
+    - Incrementally build solution, using failing tests to justify growth.
+    - (Action) Good to have foresight. Jot down notes. Will help guide solution.
+    - Resisting overcoding keeps code simple; prevents permanent over-complexity.
+    - Also ensures you don't omit tests (due to immediate passes) that would otherwise be valuable docs / specs.
+- Are testing after-the-fact for added confidence.
+    - When unsure how system handles certain cases, can write test to check its response.
+    - (Action) If fails, follow normal TDD cycle. If passes, discard or keep new test, depending on docs value.
+
 ## Mindsets for Success
 
 ## Mechanics for Success
