@@ -109,4 +109,32 @@ Premature passes can happen if you:
 
 ## Mindsets for Success
 
+- TDD is a programming 'discipline' or 'paradigm'.
+    - Restricts degrees of freedom. Constrains what you _can_ do.
+    - But, in doing so, ensures (a) faster progress and (b) greater success.
+    - Only works if you subscribe to its mentality or philosophy (discussed below).
+- Incremental, verifiable progress.
+    - Short, fast feedback loops limit risk.
+    - Continually, cumulatively proven at each step.
+    - In other words, _TDD is agile_.
+- Test behaviours, not implementations or methods.
+    - 'Behaviour' at the low-level i.e. cases or scenarios.
+    - One test per behaviour, to keep tests focused and simple.
+- Tests as 'living' documentation or requirements (specs).
+    - Descriptive test names summarize the system's behaviours.
+    - Focused, expressive test steps demonstrate these behaviours concretely.
+    - These together make tests (docs) that are easy to read and quick to understand.
+    - These 'living' docs won't go stale; they are, by definition, actively maintained.
+- Avoid unnecessary complexity; keep the design simple.
+    - Over-complexity costs developer time. To understand, to maintain, to extend.
+    - Cause 1: time pressure. The only way to run fast is to run well. Well-proven fact.
+    - Cause 2: lacking education. Learn through peers (reviews, pairing) and other resources (books, courses) about clean code and designs.
+    - Cause 3: existing complexity. Messy legacy code perpetuates messy practices. Chapter 8 covers _Legacy Challenges_.
+    - Cause 4: refactor fear. Tests provide the confidence to safely refactor. Without that, won't want to improve design.
+    - Cause 5: speculation. Prematurely designing for something you don't yet need. Have to deal with unnecessary overhead in meantime. If never needed, costs more time to undo or workaround unused complexity. Wait till you need it; usually won't cost anything more.
+- Stick to the TDD cycle.
+    - Skipping 'Red' defeats TDD's whole purpose. See _Green On Red_ above.
+    - Skipping 'Green' obviously means the system is lacking or defective.
+    - Skipping 'Refactor' is a downward spiral of degrading design quality.
+
 ## Mechanics for Success
