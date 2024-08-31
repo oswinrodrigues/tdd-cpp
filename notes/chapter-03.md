@@ -138,3 +138,23 @@ Premature passes can happen if you:
     - Skipping 'Refactor' is a downward spiral of degrading design quality.
 
 ## Mechanics for Success
+
+- What test to write next? Which unit to add next? The next simplest one.
+    - Take the next most meaningful behaviour. Then take its smallest testable piece.
+    - "Meaningful" or useful behaviours. Not methods; those come as a by-product.
+    - 'Transformation Priority Premise' (see Chapter 10) is a more formal strategy.
+    - Sometimes, your ordering proves poor. Reflect and move on, or, revert recent unit(s) and reorder. (Short, fast feedback loops minimize cost of reverting.)
+    - TDD is a craft; this intuition will refine with experience. Because it aligns with the natural human tendency to make life easy i.e. to pick the simplest next thing.
+- How "short" and "fast" are these feedback cycles? 10-minute rule of thumb. If elapsed:
+    - Pause, step back, evaluate. Spinning wheels? Derailing complexity?
+    - Reflect, revert, restart. At most, a 10-minute cost. Don't get attached to poor code.
+    - How redo better? Smaller, simpler steps? Different design? Pre-condition asserts, to verify assumptions?
+- What if a bug is found? Test-drive the fix!
+    - Use tightly targeted tests to probe system, understand response, identify root cause. Discard or keep these probes, depending on future value.
+    - Write behaviour-level test to reproduce bug. Then follow Red-Green-Refactor as usual.
+    - (TDD is human. Expect bugs. But not dumb logic mistakes, just curious gotchas.)
+- What if another test starts failing? Disable it, temporarily.
+    - Focus on one thing. Remember the incremental mindset.
+    - Remember to re-enable! Should be the one red test for next cycle.
+    - Ensure test run logs warn of disabled tests. Don't rely on human memory.
+    - Don't keep test disabled. Creates confusion about its behaviour: absent? broken? wip? slow?
