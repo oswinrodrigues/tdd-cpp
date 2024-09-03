@@ -1,7 +1,12 @@
-# TDD with CPP
-Practice exercises from [the book](https://pragprog.com/titles/lotdd/) by [@jlangr](https://github.com/jlangr), _Modern C++ Programming with Test-Driven Development_ (2013)
+# TDD in CPP
 
-I've tried to make commits reflect the TDD _process_ as much as possible, since the final _result_ alone wouldn't capture that. Follow along through successive commits to see me 'test-driving' the code.
+This project demonstrates and documents my learnings as I work through [the book](https://pragprog.com/titles/lotdd/) by [@jlangr](https://github.com/jlangr), _Modern C++ Programming with Test-Driven Development_ (2013)
+
+## Philosophy
+
+Commits reflect the TDD _process_ as much as possible, since the final _result_ wouldn't capture that. Follow along through successive commits to watch me 'test-drive' the code.
+
+Key takeaways are summarized and recorded in the `notes/` directory. It goes without saying that these are not my original ideas, but rather draw from the book's contents.
 
 ## Setup
 
